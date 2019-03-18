@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Cloure.Modules.company_branches.CompanyBranchAddPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.company_branches"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Height="32" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}">
+            <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Height="35" Click="btnBack_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Back" Foreground="White" />
+            </Button>
+            <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="btnSave_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Accept" Foreground="White" />
+            </Button>
+
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" Margin="0,35,0,0" VerticalAlignment="Stretch">
+            <TextBlock x:Name="txtNombrePrompt" HorizontalAlignment="Left" Margin="10,10,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+            <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="10,35,0,0" Text="" VerticalAlignment="Top" Width="300"/>
+            <TextBlock x:Name="txtDireccionPrompt" HorizontalAlignment="Left" Margin="315,10,0,0" Text="Dirección" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="20"/>
+            <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Margin="315,35,0,0" Text="" VerticalAlignment="Top" Width="530"/>
+            <TextBlock x:Name="txtTelefonoPrompt" HorizontalAlignment="Left" Margin="847,10,0,0" Text="Teléfono" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="20"/>
+            <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Margin="850,35,0,0" Text="" VerticalAlignment="Top" Width="200"/>
+
+        </Grid>
+    </Grid>
+</Page>

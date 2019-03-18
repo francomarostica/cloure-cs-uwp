@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="Cloure.Modules.settings.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.settings"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Background="#FF222222">
+            <Button x:Name="btnSave" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="40" Style="{ThemeResource CloureActionButton}" Click="btnSave_Click">
+                <SymbolIcon Symbol="Accept" Foreground="White"></SymbolIcon>
+            </Button>
+        </StackPanel>
+        <ScrollViewer Margin="0,32,0,0">
+            <StackPanel Margin="20" x:Name="stackModulesOptions" />
+        </ScrollViewer>
+    </Grid>
+</Page>

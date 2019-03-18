@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Cloure.Modules.credit_cards.CreditCardsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.credit_cards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="lstItems" Margin="0,35,0,0" IsItemClickEnabled="True" ItemClick="lstItems_ItemClick" RightTapped="lstItems_RightTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:CreditCard">
+                    <Grid Margin="0,10,0,10">
+                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="15" HorizontalAlignment="Stretch" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.Resources>
+                <MenuFlyout x:Name="itemContextMenu" />
+
+            </ListView.Resources>
+        </ListView>
+        <StackPanel Orientation="Horizontal" x:Name="financesToolBar" Height="35" Margin="0,0,0,0" VerticalAlignment="Top" Background="#FF222222">
+            <Button x:Name="btnAdd" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnAdd_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Add" Foreground="White"></SymbolIcon>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

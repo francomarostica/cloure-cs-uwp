@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="Cloure.RegistrationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/bg2_v_1_1_1920_1080.jpg"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Source="/Assets/logo_full.png" MinWidth="150" MaxWidth="500" Height="42" Width="236" ManipulationMode="Scale"/>
+        <TextBlock Margin="0,0,20,20" Text="Version 1.1" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="21" Width="74"/>
+        <ScrollViewer Margin="0,60,0,100" VerticalAlignment="Top" VerticalScrollMode="Enabled">
+            <StackPanel HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top">
+                <TextBlock x:Name="tbNamePrompt" Margin="0,5,0,0" Text="Nombre" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Margin="0,5,0,0" Text="" VerticalAlignment="Top" Width="400" Height="32"/>
+                <TextBlock x:Name="tbLastNamePrompt" Margin="0,5,0,0" Text="Apellido" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtApellido" HorizontalAlignment="Center" Margin="0,5,0,0" Text="" VerticalAlignment="Top" Width="400" Height="32"/>
+                <TextBlock x:Name="tbEmailPrompt" Margin="0,5,0,0" Text="Dirección de correo" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtEmail" HorizontalAlignment="Center" Margin="0,5,0,0" Text="" VerticalAlignment="Top" Width="400" Height="32"/>
+                <TextBlock x:Name="tbBusinessNamePrompt" Margin="0,5,0,0" Text="Nombre de tu negocio" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <TextBox x:Name="txtEmpresa" HorizontalAlignment="Center" Margin="0,5,0,0" Text="" VerticalAlignment="Top" Width="400" Height="32"/>
+                <TextBlock x:Name="tbBusinessTypePrompt" Margin="0,5,0,0" Text="Tipo de negocio (Actividad/Rubro)" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="txtTipoEmpresa" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="400" Height="32"/>
+
+                <TextBlock x:Name="tbCountryPrompt" Margin="0,5,0,0" Text="País" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="txtPais" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="400" Height="32"/>
+
+                <TextBlock x:Name="tbPassPrompt" Margin="0,5,0,0" Text="Clave" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="400" Height="32"/>
+
+                <TextBlock x:Name="tbRepeatPassPrompt" Margin="0,5,0,0" Text="Repetir clave" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="txtRepeatPass" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="400" Height="32"/>
+
+                <TextBlock x:Name="tbCloureURLPrompt" Margin="0,5,0,0" Text="Elige tu dirección web de cloure" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+                <Grid HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="400">
+                    <TextBox x:Name="txtCloureURL" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" VerticalAlignment="Center" Width="290" Height="32" PlaceholderText="minegocio" HorizontalContentAlignment="Right" TextAlignment="Right"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="295,0,0,0" Text=".cloure.com" TextWrapping="Wrap" VerticalAlignment="Center" Height="23" Width="100" Foreground="White"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="400" Height="54">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="180*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnLogin" Content="Iniciar sesión" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" Foreground="White" Height="32" Style="{StaticResource CloureButton}" Click="btnLogin_Click"/>
+            <Button x:Name="btnRegister" Content="Registrarse" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" Foreground="White" Height="32" Grid.Column="2" Style="{StaticResource CloureButton}" Click="btnRegister_Click"/>
+            <ProgressRing x:Name="loginProgress" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Center" Foreground="White" Height="20" Width="20" Grid.Column="2"/>
+        </Grid>
+
+    </Grid>
+</Page>

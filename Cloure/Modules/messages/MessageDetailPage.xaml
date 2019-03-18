@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Cloure.Modules.messages.MessageDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.messages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Stretch" Background="#FF222222" Height="32" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Bottom" Click="btnBack_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Back" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Grid Margin="0,32,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Mensaje: " TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+            <TextBlock x:Name="txtMensaje" Margin="10,35,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="241" />
+
+        </Grid>
+    </Grid>
+</Page>

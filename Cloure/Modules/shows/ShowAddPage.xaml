@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="Cloure.Modules.shows.ShowAddPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.shows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:users="using:Cloure.Modules.users"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Stretch" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Background="{ThemeResource ApplicationToolBar}">
+            <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnBack_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Back" Foreground="White" />
+            </Button>
+            <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="btnSave_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Accept" Foreground="White" />
+            </Button>
+        </Grid>
+        <Pivot Margin="0,32,0,0">
+            <PivotItem Header="General">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" Text="Fecha" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="txtFecha" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40,0,0" Width="300" />
+
+                    <TextBlock HorizontalAlignment="Left" Margin="310,10,0,0" Text="Banda/Artista" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                    <ComboBox x:Name="txtBandaArtista" HorizontalAlignment="Left" Margin="310,40,0,0" VerticalAlignment="Top" Width="300"/>
+                    <Button x:Name="btnAddBandaArtista" HorizontalAlignment="Left" Margin="610,40,0,0" VerticalAlignment="Top" Width="40" Height="32" Style="{ThemeResource CloureActionButton}" Click="btnAddBandaArtista_Click">
+                        <SymbolIcon Symbol="Add" />
+                    </Button>
+                    <TextBlock HorizontalAlignment="Left" Margin="660,10,0,0" Text="Lugar" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+                    <ComboBox x:Name="txtLugar" HorizontalAlignment="Left" Margin="660,40,0,0" VerticalAlignment="Top" Width="300"/>
+                    <Button x:Name="btnAddLugar" HorizontalAlignment="Left" Margin="960,40,0,0" VerticalAlignment="Top" Width="40" Height="32" Style="{ThemeResource CloureActionButton}" Click="btnAddLugar_Click">
+                        <SymbolIcon Symbol="Add" />
+                    </Button>
+
+                    <Grid HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}" Height="32" Margin="0,90,0,0" VerticalAlignment="Top">
+                        <Button x:Name="btnSelectPhotographer" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="40" Style="{ThemeResource CloureActionButton}" Click="BtnSelectPhotographer_Click">
+                            <SymbolIcon Symbol="Bullets" Foreground="White"/>
+                        </Button>
+
+                        <Button Visibility="Collapsed" x:Name="btnAddPhotographer" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="BtnAddPhotographer_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                            <SymbolIcon Symbol="Add" Foreground="White"/>
+                        </Button>
+
+                        <TextBlock Margin="45,0,0,0" Text="Fotográfos" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                    <ListView x:Name="lstPhotographers" ItemsSource="{Binding}" Margin="0,127,0,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="users:User">
+                                <Grid Margin="0,10,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding ImageURL}" />
+                                        </Image.Source>
+                                    </Image>
+                                    <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                                        <TextBlock Text="{x:Bind razonsocial}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="15" HorizontalAlignment="Stretch" />
+                                        <TextBlock Text="{x:Bind grupo}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="12" HorizontalAlignment="Stretch" />
+                                        <TextBlock Text="{x:Bind email}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="12" HorizontalAlignment="Stretch" />
+                                        <TextBlock Text="Fotos declaradas" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="12" HorizontalAlignment="Stretch" />
+                                        <TextBox x:Name="txtFotos" Text="{x:Bind Fotos}" Margin="15,0,0,0" HorizontalAlignment="Left" Width="100" PreviewKeyUp="TxtFotos_PreviewKeyUp" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Resources>
+                            <MenuFlyout x:Name="itemContextMenu" />
+                        </ListView.Resources>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Imágenes">
+                <Grid>
+                    <Grid HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}" Height="32" Margin="0,0,0,0" VerticalAlignment="Top">
+                        <Button x:Name="btnAddImage" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnAddImage_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                            <SymbolIcon Symbol="Add" Foreground="White"/>
+                        </Button>
+                        <TextBlock x:Name="txtImgAdvice" Margin="50,0,0,0" Foreground="{ThemeResource ApplicationToolBarForeground}" VerticalAlignment="Center" Text="" />
+                    </Grid>
+                    <GridView x:Name="lstImages" ItemsSource="{Binding}" Margin="0,32,0,0">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=ImageSrc}" Height="180" Width="180" Stretch="UniformToFill" Margin="6"/>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </Grid>
+            </PivotItem>
+        </Pivot>
+
+    </Grid>
+</Page>

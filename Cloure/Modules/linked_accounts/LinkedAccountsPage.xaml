@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Cloure.Modules.linked_accounts.LinkedAccountsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.linked_accounts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridView x:Name="grdItems" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" ItemClick="GrdItems_ItemClick" IsItemClickEnabled="True">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:LinkedAccount">
+                    <StackPanel Orientation="Vertical" Margin="10" Padding="10" Width="200">
+                        <TextBlock Text="{x:Bind Title}" Height="50" TextAlignment="Center" TextWrapping="Wrap" Foreground="{ThemeResource ApplicationListItemColor}" FontSize="15" HorizontalAlignment="Stretch" />
+                        <Image>
+                            <Image.Source>
+                                <BitmapImage UriSource="{Binding ImageURL}" />
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Text="{x:Bind Status}" Height="50" TextAlignment="Center" TextWrapping="Wrap" Foreground="{ThemeResource ApplicationListItemColor}" FontSize="15" HorizontalAlignment="Stretch" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <Grid x:Name="grdNoRegisters" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0" Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Text="No se encontraron registros" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" FontWeight="Light"/>
+        </Grid>
+    </Grid>
+</Page>

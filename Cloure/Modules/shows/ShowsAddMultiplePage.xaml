@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="Cloure.Modules.shows.ShowsAddMultiplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.shows"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:users="using:Cloure.Modules.users"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid HorizontalAlignment="Stretch" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Background="{ThemeResource ApplicationToolBar}">
+            <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnBack_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Back" Foreground="White" />
+            </Button>
+            <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="btnSave_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Accept" Foreground="White" />
+            </Button>
+        </Grid>
+        <Grid Margin="10,40,10,10">
+            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" Text="Banda/Artista" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+            <ComboBox x:Name="txtBandaArtista" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" Width="300"/>
+            <Button x:Name="btnAddBandaArtista" HorizontalAlignment="Left" Margin="300,40,0,0" VerticalAlignment="Top" Width="40" Height="32" Style="{ThemeResource CloureActionButton}" Click="BtnAddBandaArtista_Click">
+                <SymbolIcon Symbol="Add" />
+            </Button>
+
+            <Grid HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}" Height="32" Margin="0,90,0,0" VerticalAlignment="Top">
+                <Button x:Name="btnAddEvent" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="40" Style="{ThemeResource CloureActionButton}" Click="BtnAddEvent_Click">
+                    <SymbolIcon Symbol="Add" Foreground="White"/>
+                </Button>
+
+                <TextBlock Margin="45,0,0,0" Text="Fechas y lugares" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch"/>
+            </Grid>
+            <ListView x:Name="lstShows" ItemsSource="{Binding}" Margin="0,127,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Show">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="350"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <DatePicker x:Name="txtFecha" Date="{x:Bind Path=FechaOffset, Mode=TwoWay}" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" />
+                                <ComboBox x:Name="txtLugar" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" ItemsSource="{Binding Places}" DisplayMemberPath="Nombre" SelectedValuePath="Id" SelectedValue="{x:Bind Path=LugarId, Mode=TwoWay}" />
+                                <Button x:Name="btnDeleteShow" Grid.Column="2" Style="{ThemeResource CloureActionButton}" Click="BtnDeleteShow_Click">
+                                    <SymbolIcon Symbol="Delete" />
+                                </Button>
+                            </Grid>
+                            <Grid HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}" Height="32" Margin="0" VerticalAlignment="Top">
+                                <Button x:Name="btnAddPhotographer" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="40" Style="{ThemeResource CloureActionButton}" Click="BtnAddPhotographer_Click">
+                                    <SymbolIcon Symbol="AddFriend" Foreground="White"/>
+                                </Button>
+                                <TextBlock Margin="45,0,0,0" Text="Fotográfos" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Stretch"/>
+                            </Grid>
+                            <ListView ItemsSource="{Binding Fotografos}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="users:User">
+                                        <Grid Margin="0,10,0,10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0">
+                                                <Image.Source>
+                                                    <BitmapImage UriSource="{Binding ImageURL}" />
+                                                </Image.Source>
+                                            </Image>
+                                            <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                                                <TextBlock Text="{x:Bind razonsocial}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="15" HorizontalAlignment="Stretch" />
+                                                <TextBlock Text="{x:Bind grupo}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="12" HorizontalAlignment="Stretch" />
+                                                <TextBlock Text="{x:Bind email}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="12" HorizontalAlignment="Stretch" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.Resources>
+                    <MenuFlyout x:Name="itemContextMenu" />
+                </ListView.Resources>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

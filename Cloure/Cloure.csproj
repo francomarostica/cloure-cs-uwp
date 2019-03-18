@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{53936B9E-B614-4589-B767-78EE536B2447}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cloure</RootNamespace>
+    <AssemblyName>Cloure</AssemblyName>
+    <DefaultLanguage>es-ES</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>Cloure_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>E72376411DA95723965496C732F6151566D4DAD7</PackageCertificateThumbprint>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CloureClient.cs" />
+    <Compile Include="CloureManager.cs" />
+    <Compile Include="Core\ApiError.cs" />
+    <Compile Include="Core\AvailableCommand.cs" />
+    <Compile Include="Core\AvailableLanguage.cs" />
+    <Compile Include="Core\AvailableLanguages.cs" />
+    <Compile Include="Core\BusinessType.cs" />
+    <Compile Include="Core\BusinessTypes.cs" />
+    <Compile Include="Core\CloureImage.cs" />
+    <Compile Include="Core\CloureMenuGroup.cs" />
+    <Compile Include="Core\CloureMenuItem.cs" />
+    <Compile Include="Core\CloureModule.cs" />
+    <Compile Include="Core\CloureParam.cs" />
+    <Compile Include="Core\CloureParams.cs" />
+    <Compile Include="Core\ClourePrivilege.cs" />
+    <Compile Include="Core\CloureSetting.cs" />
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="Core\GenericResponse.cs" />
+    <Compile Include="Core\GlobalCommand.cs" />
+    <Compile Include="Core\Locale.cs" />
+    <Compile Include="Core\ModuleFilter.cs" />
+    <Compile Include="Core\ModuleFilterItem.cs" />
+    <Compile Include="Core\ModuleInfo.cs" />
+    <Compile Include="Core\ModulePrivileges.cs" />
+    <Compile Include="Core\ModuleSettings.cs" />
+    <Compile Include="Core\Price.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\bands_artists\BandArtist.cs" />
+    <Compile Include="Modules\bands_artists\BandArtistAddPage.xaml.cs">
+      <DependentUpon>BandArtistAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\bands_artists\BandsArtists.cs" />
+    <Compile Include="Modules\bands_artists\BandsArtistsPage.xaml.cs">
+      <DependentUpon>BandsArtistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\bands_artists\mod_bands_artists.cs" />
+    <Compile Include="Modules\banks\Bank.cs" />
+    <Compile Include="Modules\banks\BankAddPage.xaml.cs">
+      <DependentUpon>BankAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\banks\Banks.cs" />
+    <Compile Include="Modules\banks\BanksPage.xaml.cs">
+      <DependentUpon>BanksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\banks\mod_banks.cs" />
+    <Compile Include="Modules\bank_checks\BankCheck.cs" />
+    <Compile Include="Modules\bank_checks\BankCheckAdd.xaml.cs">
+      <DependentUpon>BankCheckAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\bank_checks\BankChecks.cs" />
+    <Compile Include="Modules\bank_checks\BankChecksPage.xaml.cs">
+      <DependentUpon>BankChecksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\bank_checks\mod_bank_checks.cs" />
+    <Compile Include="Modules\blog\BlogPage.xaml.cs">
+      <DependentUpon>BlogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\blog\Blogs.cs" />
+    <Compile Include="Modules\blog\mod_blog.cs" />
+    <Compile Include="Modules\cloure_market\CloureMarketPage.xaml.cs">
+      <DependentUpon>CloureMarketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\cloure_market\CloureProduct.cs" />
+    <Compile Include="Modules\cloure_market\CloureProducts.cs" />
+    <Compile Include="Modules\cloure_market\mod_cloure_market.cs" />
+    <Compile Include="Modules\cloure_market\SubscriptionPage.xaml.cs">
+      <DependentUpon>SubscriptionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\company\CompanyPage.xaml.cs">
+      <DependentUpon>CompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\company\mod_company.cs" />
+    <Compile Include="Modules\company_branches\CompanyBranch.cs" />
+    <Compile Include="Modules\company_branches\CompanyBranchAddPage.xaml.cs">
+      <DependentUpon>CompanyBranchAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\company_branches\CompanyBranches.cs" />
+    <Compile Include="Modules\company_branches\CompanyBranchesPage.xaml.cs">
+      <DependentUpon>CompanyBranchesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\company_branches\CompanyBranchResponse.cs" />
+    <Compile Include="Modules\company_branches\mod_company_branches.cs" />
+    <Compile Include="Modules\company_branches_receipts\CompanyBranchesReceipts.cs" />
+    <Compile Include="Modules\company_branches_receipts\CompanyBranchReceipt.cs" />
+    <Compile Include="Modules\countries\Countries.cs" />
+    <Compile Include="Modules\countries\CountriesPage.xaml.cs">
+      <DependentUpon>CountriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\countries\Country.cs" />
+    <Compile Include="Modules\countries\mod_countries.cs" />
+    <Compile Include="Modules\countries_n1\CountriesN1.cs" />
+    <Compile Include="Modules\countries_n1\CountryN1.cs" />
+    <Compile Include="Modules\credit_cards\CreditCard.cs" />
+    <Compile Include="Modules\credit_cards\CreditCardAddPage.xaml.cs">
+      <DependentUpon>CreditCardAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\credit_cards\CreditCards.cs" />
+    <Compile Include="Modules\credit_cards\CreditCardsPage.xaml.cs">
+      <DependentUpon>CreditCardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\credit_cards\mod_credit_cards.cs" />
+    <Compile Include="Modules\currencies\Currencies.cs" />
+    <Compile Include="Modules\currencies\Currency.cs" />
+    <Compile Include="Modules\debit_cards\DebitCard.cs" />
+    <Compile Include="Modules\debit_cards\DebitCardAddPage.xaml.cs">
+      <DependentUpon>DebitCardAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\debit_cards\DebitCards.cs" />
+    <Compile Include="Modules\debit_cards\DebitCardsPage.xaml.cs">
+      <DependentUpon>DebitCardsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\debit_cards\mod_debit_cards.cs" />
+    <Compile Include="Modules\finances\FinanceAdd.xaml.cs">
+      <DependentUpon>FinanceAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\finances\FinanceMovement.cs" />
+    <Compile Include="Modules\finances\Finances.cs" />
+    <Compile Include="Modules\finances\financesPage.xaml.cs">
+      <DependentUpon>financesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\finances\FinancesResponse.cs" />
+    <Compile Include="Modules\finances\mod_finances.cs" />
+    <Compile Include="Modules\finances\Operation.cs" />
+    <Compile Include="Modules\finances\Operations.cs" />
+    <Compile Include="Modules\invoicing\Invoicing.cs" />
+    <Compile Include="Modules\invoicing\InvoicingFinishPage.xaml.cs">
+      <DependentUpon>InvoicingFinishPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\invoicing\InvoicingPage.xaml.cs">
+      <DependentUpon>InvoicingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\invoicing\mod_invoicing.cs" />
+    <Compile Include="Modules\invoicing\SetUnitsByMeasurePage.xaml.cs">
+      <DependentUpon>SetUnitsByMeasurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\linked_accounts\LinkedAccount.cs" />
+    <Compile Include="Modules\linked_accounts\LinkedAccountLink.xaml.cs">
+      <DependentUpon>LinkedAccountLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\linked_accounts\LinkedAccounts.cs" />
+    <Compile Include="Modules\linked_accounts\LinkedAccountsPage.xaml.cs">
+      <DependentUpon>LinkedAccountsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\linked_accounts\mod_linked_accounts.cs" />
+    <Compile Include="Modules\maintenance_shifts\mod_maintenance_shifts.cs" />
+    <Compile Include="Modules\maintenance_warranties\mod_maintenance_warranties.cs" />
+    <Compile Include="Modules\messages\Message.cs" />
+    <Compile Include="Modules\messages\MessageDetailPage.xaml.cs">
+      <DependentUpon>MessageDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\messages\Messages.cs" />
+    <Compile Include="Modules\messages\MessagesPage.xaml.cs">
+      <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\messages\mod_messages.cs" />
+    <Compile Include="Modules\multimedia\mod_multimedia.cs" />
+    <Compile Include="Modules\my_account\ChangePassPage.xaml.cs">
+      <DependentUpon>ChangePassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\my_account\mod_my_account.cs" />
+    <Compile Include="Modules\my_account\MyAccountPage.xaml.cs">
+      <DependentUpon>MyAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\payments_methods\mod_payments_methods.cs" />
+    <Compile Include="Modules\payments_methods\PaymentMethod.cs" />
+    <Compile Include="Modules\payments_methods\PaymentsMethods.cs" />
+    <Compile Include="Modules\photographer_performance\mod_photographer_performance.cs" />
+    <Compile Include="Modules\photographer_performance\PhotographerPerformanceItem.cs" />
+    <Compile Include="Modules\photographer_performance\PhotographerPerformanceResponse.cs" />
+    <Compile Include="Modules\photographer_performance\PhotographersPerformance.cs" />
+    <Compile Include="Modules\photographer_performance\PhotographersPerformancePage.xaml.cs">
+      <DependentUpon>PhotographersPerformancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\places\mod_places.cs" />
+    <Compile Include="Modules\places\Place.cs" />
+    <Compile Include="Modules\places\PlaceAddPage.xaml.cs">
+      <DependentUpon>PlaceAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\places\Places.cs" />
+    <Compile Include="Modules\places\PlacesPage.xaml.cs">
+      <DependentUpon>PlacesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\products_services\mod_products_services.cs" />
+    <Compile Include="Modules\products_services\ProductMeasureUnit.cs" />
+    <Compile Include="Modules\products_services\ProductService.cs" />
+    <Compile Include="Modules\products_services\ProductServiceAddPage.xaml.cs">
+      <DependentUpon>ProductServiceAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\products_services\ProductsResponse.cs" />
+    <Compile Include="Modules\products_services\ProductsServices.cs" />
+    <Compile Include="Modules\products_services\ProductsServicesBuyStockPage.xaml.cs">
+      <DependentUpon>ProductsServicesBuyStockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\products_services\ProductsServicesPage.xaml.cs">
+      <DependentUpon>ProductsServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\products_services\ProductStock.cs" />
+    <Compile Include="Modules\products_services\ProductType.cs" />
+    <Compile Include="Modules\products_services_categories\mod_products_services_categories.cs" />
+    <Compile Include="Modules\products_services_categories\ProductCategoryType.cs" />
+    <Compile Include="Modules\products_services_categories\ProductServiceCategory.cs" />
+    <Compile Include="Modules\products_services_categories\ProductServiceCategoryAddPage.xaml.cs">
+      <DependentUpon>ProductServiceCategoryAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\products_services_categories\ProductsServicesCategories.cs" />
+    <Compile Include="Modules\products_services_categories\ProductsServicesCategoriesPage.xaml.cs">
+      <DependentUpon>ProductsServicesCategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\properties\mod_properties.cs" />
+    <Compile Include="Modules\properties\Properties.cs" />
+    <Compile Include="Modules\properties\PropertiesAddPage.xaml.cs">
+      <DependentUpon>PropertiesAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\properties\PropertiesPage.xaml.cs">
+      <DependentUpon>PropertiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\properties\Property.cs" />
+    <Compile Include="Modules\properties_operations\PropertiesOperations.cs" />
+    <Compile Include="Modules\properties_operations\PropertyOperation.cs" />
+    <Compile Include="Modules\properties_states\PropertiesStates.cs" />
+    <Compile Include="Modules\properties_states\PropertyState.cs" />
+    <Compile Include="Modules\properties_types\PropertiesTypes.cs" />
+    <Compile Include="Modules\properties_types\PropertyType.cs" />
+    <Compile Include="Modules\receipts\CartItem.cs" />
+    <Compile Include="Modules\receipts\mod_receipts.cs" />
+    <Compile Include="Modules\receipts\Receipt.cs" />
+    <Compile Include="Modules\receipts\ReceiptDetails.xaml.cs">
+      <DependentUpon>ReceiptDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\receipts\Receipts.cs" />
+    <Compile Include="Modules\receipts\ReceiptsPage.xaml.cs">
+      <DependentUpon>ReceiptsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\receipts\ReceiptsResponse.cs" />
+    <Compile Include="Modules\settings\mod_settings.cs" />
+    <Compile Include="Modules\settings\Settings.cs" />
+    <Compile Include="Modules\settings\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows\mod_shows.cs" />
+    <Compile Include="Modules\shows\Show.cs" />
+    <Compile Include="Modules\shows\ShowAddPage.xaml.cs">
+      <DependentUpon>ShowAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows\ShowAgregarLiquidacion.xaml.cs">
+      <DependentUpon>ShowAgregarLiquidacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows\Shows.cs" />
+    <Compile Include="Modules\shows\ShowsAddMultiplePage.xaml.cs">
+      <DependentUpon>ShowsAddMultiplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows\ShowsCollection.cs" />
+    <Compile Include="Modules\shows\ShowsPage.xaml.cs">
+      <DependentUpon>ShowsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows_news\mod_shows_news.cs" />
+    <Compile Include="Modules\shows_news\ShowArticle.cs" />
+    <Compile Include="Modules\shows_news\ShowsNews.cs" />
+    <Compile Include="Modules\shows_news\ShowsNewsAddPage.xaml.cs">
+      <DependentUpon>ShowsNewsAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows_news\ShowsNewsPage.xaml.cs">
+      <DependentUpon>ShowsNewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\shows_personal_history\mod_shows_personal_history.cs" />
+    <Compile Include="Modules\shows_personal_history\ShowPersonalHistoryItem.cs" />
+    <Compile Include="Modules\shows_personal_history\ShowPersonalHistoryResponse.cs" />
+    <Compile Include="Modules\shows_personal_history\ShowsPersonalHistory.cs" />
+    <Compile Include="Modules\shows_personal_history\ShowsPersonalHistoryPage.xaml.cs">
+      <DependentUpon>ShowsPersonalHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\support\mod_support.cs" />
+    <Compile Include="Modules\support\Support.cs" />
+    <Compile Include="Modules\support\SupportPage.xaml.cs">
+      <DependentUpon>SupportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\support\SupportType.cs" />
+    <Compile Include="Modules\transports\mod_transports.cs" />
+    <Compile Include="Modules\transports\Transport.cs" />
+    <Compile Include="Modules\transports\TransportAddPage.xaml.cs">
+      <DependentUpon>TransportAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\transports\Transports.cs" />
+    <Compile Include="Modules\transports\TransportsPage.xaml.cs">
+      <DependentUpon>TransportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users\mod_users.cs" />
+    <Compile Include="Modules\users\PersonGender.cs" />
+    <Compile Include="Modules\users\User.cs" />
+    <Compile Include="Modules\users\UserAddPage.xaml.cs">
+      <DependentUpon>UserAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users\UserAddPaymentPage.xaml.cs">
+      <DependentUpon>UserAddPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users\UserCCPage.xaml.cs">
+      <DependentUpon>UserCCPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users\Users.cs" />
+    <Compile Include="Modules\users\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users\UsersResponse.cs" />
+    <Compile Include="Modules\users\UsersSelectionPage.xaml.cs">
+      <DependentUpon>UsersSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users_groups\mod_users_groups.cs" />
+    <Compile Include="Modules\users_groups\UserGroup.cs" />
+    <Compile Include="Modules\users_groups\UserGroupAddPage.xaml.cs">
+      <DependentUpon>UserGroupAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\users_groups\UsersGroups.cs" />
+    <Compile Include="Modules\users_groups\UsersGroupsPage.xaml.cs">
+      <DependentUpon>UsersGroupsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\videos\mod_videos.cs" />
+    <Compile Include="Modules\videos\Video.cs" />
+    <Compile Include="Modules\videos\VideoAddPage.xaml.cs">
+      <DependentUpon>VideoAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\videos\Videos.cs" />
+    <Compile Include="Modules\videos\VideosPage.xaml.cs">
+      <DependentUpon>VideosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Cloure_StoreKey.pfx" />
+    <None Include="Cloure_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\bank-flat.png" />
+    <Content Include="Assets\bg2_v_1_1_1920_1080.jpg" />
+    <Content Include="Assets\bg3_1920_1080.jpg" />
+    <Content Include="Assets\bg_wide.jpg" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\logo250.png" />
+    <Content Include="Assets\logo_full.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\bands_artists\BandArtistAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\bands_artists\BandsArtistsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\banks\BankAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\banks\BanksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\bank_checks\BankCheckAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\bank_checks\BankChecksPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\blog\BlogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\cloure_market\CloureMarketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\cloure_market\SubscriptionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\company\CompanyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\company_branches\CompanyBranchAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\company_branches\CompanyBranchesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\countries\CountriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\credit_cards\CreditCardAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\credit_cards\CreditCardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\debit_cards\DebitCardAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\debit_cards\DebitCardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\finances\FinanceAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\finances\financesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\invoicing\InvoicingFinishPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\invoicing\InvoicingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\invoicing\SetUnitsByMeasurePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\linked_accounts\LinkedAccountLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\linked_accounts\LinkedAccountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\messages\MessageDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\messages\MessagesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\my_account\ChangePassPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\my_account\MyAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\photographer_performance\PhotographersPerformancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\places\PlaceAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\places\PlacesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\products_services\ProductServiceAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\products_services\ProductsServicesBuyStockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\products_services\ProductsServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\products_services_categories\ProductServiceCategoryAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\products_services_categories\ProductsServicesCategoriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\properties\PropertiesAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\properties\PropertiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\receipts\ReceiptDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\receipts\ReceiptsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\settings\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows\ShowAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows\ShowAgregarLiquidacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows\ShowsAddMultiplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows\ShowsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows_news\ShowsNewsAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows_news\ShowsNewsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\shows_personal_history\ShowsPersonalHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\support\SupportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\transports\TransportAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\transports\TransportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users\UserAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users\UserAddPaymentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users\UserCCPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users\UsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users\UsersSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users_groups\UserGroupAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\users_groups\UsersGroupsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\videos\VideoAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\videos\VideosPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\cloure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.1.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>5.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.Advertising.Xaml, Version=10.0">
+      <Name>Microsoft Advertising SDK for XAML</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\promotions\" />
+    <Folder Include="Modules\purchases\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

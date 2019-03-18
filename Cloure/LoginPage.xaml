@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Cloure.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/bg2_v_1_1_1920_1080.jpg"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Source="/Assets/logo_full.png" MinWidth="150" MaxWidth="500" Height="72" Width="400" ManipulationMode="Scale"/>
+        <TextBlock x:Name="txtVersion" Margin="0,0,20,20" Text="Version 1.1" TextWrapping="Wrap" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="21" Width="74"/>
+        <TextBlock x:Name="tbUserPrompt" Margin="0,150,0,0" Text="Usuario o email" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Center" Margin="0,180,0,0" Text="" VerticalAlignment="Top" Width="400" Height="32"/>
+        <TextBlock x:Name="tbPassPromp" Margin="0,220,0,0" Text="Clave" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="20" Width="390" HorizontalAlignment="Center"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Margin="0,245,0,0" VerticalAlignment="Top" Width="400" Height="32" KeyDown="txtPass_KeyDown"/>
+        <CheckBox x:Name="chKeepConnected" Margin="0,280,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Content="Mantener conectado" Foreground="White" />
+        <Grid HorizontalAlignment="Center" Height="54" Margin="0,340,0,0" VerticalAlignment="Top" Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="180"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnLogin" Content="Iniciar sesión" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" Click="btnLogin_Click" Foreground="White" Height="32"/>
+            <Button x:Name="btnRegister" Content="Registrarse" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="180" Foreground="White" Height="32" Grid.Column="2" Click="btnRegister_Click"/>
+            <ProgressRing x:Name="loginProgress" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Center" Foreground="White" Height="20" Width="20"/>
+        </Grid>
+        <ComboBox x:Name="txtLanguage" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Width="400" Height="32" SelectionChanged="txtLanguage_SelectionChanged" />
+    </Grid>
+</Page>

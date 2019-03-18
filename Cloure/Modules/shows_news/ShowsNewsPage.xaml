@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="Cloure.Modules.shows_news.ShowsNewsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.shows_news"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:user="using:Cloure.Modules.users"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationToolBar}"  HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" Height="32">
+            <StackPanel Orientation="Horizontal" x:Name="ToolBar" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Button x:Name="btnFilters" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Stretch" Width="40" Click="btnFilters_Click" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Filter" Foreground="White"/>
+            </Button>
+            <TextBox x:Name="txtSearch" HorizontalAlignment="Right" Margin="0,0,40,0" Text="" Width="305" VerticalContentAlignment="Center" PlaceholderText="Buscar" KeyDown="txtSearch_KeyDown" TextChanged="txtSearch_TextChanged"/>
+            <Button x:Name="btnAdd" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnAdd_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Add" Foreground="White" />
+            </Button>
+            
+
+        </Grid>
+        <ListView x:Name="lstItems" Margin="0,32,0,32" RightTapped="lstItems_RightTapped" ItemClick="lstItems_ItemClick" IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:ShowArticle">
+                    <Grid Margin="0,10,0,10">
+                        <TextBlock Text="{x:Bind Titulo}" Foreground="{ThemeResource ApplicationListItemColor}" Padding="15,0,0,0" FontSize="15" HorizontalAlignment="Stretch" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.Resources>
+                <MenuFlyout x:Name="itemContextMenu" />
+            </ListView.Resources>
+        </ListView>
+        <Grid x:Name="grdNoRegisters" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,32,0,0" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Text="No se encontraron registros" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" FontWeight="Light"/>
+        </Grid>
+        <Grid x:Name="grdLoader" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,32,0,32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <ProgressRing IsActive="True" />
+        </Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="32" Background="{ThemeResource ApplicationFooterBarColorBrush}">
+            <Button x:Name="btnFirst" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Style="{ThemeResource CloureFooterButton}" Click="btnFirst_Click">
+                <SymbolIcon Symbol="Previous" />
+            </Button>
+            <Button x:Name="btnPrevious" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Style="{ThemeResource CloureFooterButton}" Click="btnPrevious_Click">
+                <SymbolIcon Symbol="Back" />
+            </Button>
+            <Button x:Name="btnNext" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Style="{ThemeResource CloureFooterButton}" Click="btnNext_Click">
+                <SymbolIcon Symbol="Forward" />
+            </Button>
+            <Button x:Name="btnLast" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Style="{ThemeResource CloureFooterButton}" Click="btnLast_Click">
+                <SymbolIcon Symbol="Next" />
+            </Button>
+            <TextBlock x:Name="txtRegister" Margin="10,0,0,0" Text="TextBlock" TextWrapping="Wrap" Height="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,5,0,0" Style="{ThemeResource CloureFooterTextBlock}"/>
+        </StackPanel>
+        <Grid x:Name="grdFilters" HorizontalAlignment="Right" Width="350" Background="#CC000000" Margin="0,32,0,32" Visibility="Collapsed">
+            <StackPanel x:Name="grdFiltersContent" />
+        </Grid>
+
+    </Grid>
+</Page>

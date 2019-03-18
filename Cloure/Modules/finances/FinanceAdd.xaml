@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Cloure.Modules.finances.FinanceAdd"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.finances"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationToolBar}" Height="32" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Button x:Name="btnVolver" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnVolver_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Back" Foreground="White"/>
+            </Button>
+            <Button x:Name="btnAceptar" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="btnAceptar_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Accept" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" Margin="0,32,0,0" VerticalAlignment="Stretch">
+            <TextBlock x:Name="cboOperationPrompt" HorizontalAlignment="Left" Margin="10,10,0,0" Text="Operación" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+            <ComboBox x:Name="cboOperation" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="248"/>
+            <TextBlock x:Name="cboPaymentMethodPrompt" HorizontalAlignment="Left" Margin="276,10,0,0" Text="Forma de pago" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+            <ComboBox x:Name="cboPaymentMethod" HorizontalAlignment="Left" Margin="276,35,0,0" VerticalAlignment="Top" Width="248"/>
+            <TextBlock x:Name="txtDescriptionPrompt" HorizontalAlignment="Left" Margin="10,100,0,0" Text="Descripción" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
+            <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Margin="10,125,0,0" Text="" VerticalAlignment="Top" Width="514"/>
+            <TextBlock x:Name="txtAmountPrompt" HorizontalAlignment="Left" Margin="377,180,0,0" Text="Importe" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+            <TextBox x:Name="txtAmount" HorizontalAlignment="Left" Margin="377,205,0,0" Text="" VerticalAlignment="Top" Width="147"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Cloure.Modules.invoicing.SetUnitsByMeasurePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cloure.Modules.invoicing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" KeyDown="Page_KeyDown">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid HorizontalAlignment="Stretch" Background="#FF222222" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" >
+            <Button x:Name="btnAceptar" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Click="btnAceptar_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Accept" Foreground="White"/>
+            </Button>
+            <Button x:Name="btnCancelar" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Stretch" Click="btnCancelar_Click" Width="40" Style="{ThemeResource CloureActionButton}">
+                <SymbolIcon Symbol="Cancel" Foreground="White"/>
+            </Button>
+        </Grid>
+        <TextBlock x:Name="lblCantidad" HorizontalAlignment="Left" Margin="10,59,0,0" Text="Cantidad" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="10,84,0,0" Text="1" VerticalAlignment="Top" Width="110" TextChanged="txtCantidad_TextChanged" GotFocus="txtCantidad_GotFocus"/>
+        <TextBlock x:Name="lblCantidad_Copy" HorizontalAlignment="Left" Margin="130,59,0,0" Text="Ancho" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAncho" HorizontalAlignment="Left" Margin="130,84,0,0" Text="0" VerticalAlignment="Top" Width="110" TextChanged="txtAncho_TextChanged" GotFocus="txtAncho_GotFocus"/>
+        <TextBlock x:Name="lblCantidad_Copy1" HorizontalAlignment="Left" Margin="245,59,0,0" Text="Alto" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAlto" HorizontalAlignment="Left" Margin="245,84,0,0" Text="0" VerticalAlignment="Top" Width="110" TextChanged="txtAlto_TextChanged" GotFocus="txtAlto_GotFocus"/>
+        <TextBlock x:Name="lblCantidad_Copy2" HorizontalAlignment="Left" Margin="10,121,0,0" Text="Observaciones" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+        <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Margin="10,146,0,0" Text="" VerticalAlignment="Top" Width="345"/>
+        <CheckBox x:Name="chCalcularDesperdicio" Content="Calcular desperdicio" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="345"/>
+        <Grid x:Name="grdDesperdicio" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="345" Margin="10,220,0,0">
+            <TextBlock x:Name="lblCantidad_Copy3" HorizontalAlignment="Left" Margin="0,0,0,0" Text="Lado menor" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtLadoMenor" HorizontalAlignment="Left" Margin="0,25,0,0" Text="0" VerticalAlignment="Top" Width="110" TextChanged="txtLadoMenor_TextChanged" GotFocus="txtLadoMenor_GotFocus"/>
+            <TextBlock x:Name="lblCantidad_Copy4" HorizontalAlignment="Left" Margin="120,0,0,0" Text="Precio x mt2" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtPrecioDesperdicio" HorizontalAlignment="Left" Margin="120,25,0,0" Text="0" VerticalAlignment="Top" Width="110" TextChanged="txtPrecioDesperdicio_TextChanged" GotFocus="txtPrecioDesperdicio_GotFocus"/>
+            <TextBlock x:Name="lblCantidad_Copy5" HorizontalAlignment="Left" Margin="235,0,0,0" Text="Desperdicio ($)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtTotalDesperdicio" HorizontalAlignment="Left" Margin="235,25,0,0" Text="0" VerticalAlignment="Top" Width="110" IsReadOnly="True" GotFocus="txtTotalDesperdicio_GotFocus"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
