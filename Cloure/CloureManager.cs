@@ -522,6 +522,7 @@ namespace Cloure
             bool result = false;
 
             List<CloureParam> cloureParams = new List<CloureParam>();
+            cloureParams.Add(new CloureParam("module", "cloure"));
             cloureParams.Add(new CloureParam("topic", "register_account"));
             cloureParams.Add(new CloureParam("name", name));
             cloureParams.Add(new CloureParam("last_name", lastName));
@@ -530,22 +531,25 @@ namespace Cloure
             cloureParams.Add(new CloureParam("repeat_password", repeatPassword));
             cloureParams.Add(new CloureParam("company_name", companyName));
             cloureParams.Add(new CloureParam("company_type", companyTypeId));
-            cloureParams.Add(new CloureParam("cloure_url", desiredCloureURL));
+            cloureParams.Add(new CloureParam("cloure_subdomain", desiredCloureURL));
             cloureParams.Add(new CloureParam("country_id", countryId));
 
             string api_response = await ExecuteAsync(cloureParams);
             JsonObject api_response_obj = JsonObject.Parse(api_response);
-            string ApiError = api_response_obj.GetNamedString("Error");
+            string ApiError = api_response_obj.GetNamedString("error");
 
             if (ApiError == "")
             {
-                JsonObject ApiResponse = api_response_obj.GetNamedObject("Response");
+                JsonObject ApiResponse = api_response_obj.GetNamedObject("response");
                 appToken = ApiResponse.GetNamedString("app_token");
+                
+                /*
                 userToken = ApiResponse.GetNamedString("user_token");
                 accountType = ApiResponse.GetNamedString("account_type");
                 modulesGroupsArr = ApiResponse.GetNamedArray("modules_groups");
                 loguedUser = await Users.GetUser(userToken);
                 primaryDomain = ApiResponse.GetNamedString("primary_domain");
+                */
 
                 result = true;
             }
