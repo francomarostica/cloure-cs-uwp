@@ -527,8 +527,8 @@ namespace Cloure
             cloureParams.Add(new CloureParam("name", name));
             cloureParams.Add(new CloureParam("last_name", lastName));
             cloureParams.Add(new CloureParam("email", eMail));
-            cloureParams.Add(new CloureParam("password", password));
-            cloureParams.Add(new CloureParam("repeat_password", repeatPassword));
+            cloureParams.Add(new CloureParam("pass", password));
+            cloureParams.Add(new CloureParam("repeat_pass", repeatPassword));
             cloureParams.Add(new CloureParam("company_name", companyName));
             cloureParams.Add(new CloureParam("company_type", companyTypeId));
             cloureParams.Add(new CloureParam("cloure_subdomain", desiredCloureURL));
