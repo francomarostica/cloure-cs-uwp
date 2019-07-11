@@ -391,8 +391,8 @@ namespace Cloure
         {
             string Response = "";
 
-            string url_str = "https://cloure.com/api/v1/";
-            //string url_str = "http://cloure-test.com/api/v1/";
+            //string url_str = "https://cloure.com/api/v1/";
+            string url_str = "http://cloure.test/api/v1/";
             MultipartFormDataContent dataContent = new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(CultureInfo.InvariantCulture));
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(url_str);
@@ -418,6 +418,9 @@ namespace Cloure
                 {
                     if (param != null)
                     {
+                        if (param.name == "module") url_str += param.value + "/";
+                        if (param.name == "topic") url_str += param.value;
+
                         if (param.value.GetType() == typeof(string))
                         {
                             HttpContent httpContent = new StringContent((string)param.value);

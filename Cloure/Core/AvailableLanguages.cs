@@ -17,15 +17,16 @@ namespace Cloure.Core
             try
             {
                 List<CloureParam> cparams = new List<CloureParam>();
+                cparams.Add(new CloureParam("module", "cloure"));
                 cparams.Add(new CloureParam("topic", "get_available_languages"));
 
                 string res = await CloureManager.ExecuteAsync(cparams);
 
                 JsonObject api_result = JsonObject.Parse(res);
-                string error = api_result.GetNamedString("Error");
+                string error = api_result.GetNamedString("error");
                 if (error == "")
                 {
-                    JsonArray registers = api_result.GetNamedArray("Response");
+                    JsonArray registers = api_result.GetNamedArray("response");
 
                     foreach (JsonValue jsonValue in registers)
                     {

@@ -61,15 +61,16 @@ namespace Cloure
                 txtPass.Password = (string)composite["pass"];
                 chKeepConnected.IsChecked = true;
                 CloureManager.account_data_saved = true;
-                attemptLoginV2();
+                //attemptLoginV2();
+                attemptLogin();
             }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            attemptLoginV2();
+            attemptLogin();
+            //attemptLoginV2();
         }
-        /*
         public async void attemptLogin()
         {
             loginProgress.IsActive = true;
@@ -79,13 +80,30 @@ namespace Cloure
             string user = txtUser.Text;
             string pass = txtPass.Password;
 
-            bool loginResult = await CloureManager.login(user, pass, chKeepConnected.IsChecked.Value);
+            //bool loginResult = await CloureManager.login(user, pass, chKeepConnected.IsChecked.Value);
 
             List<CloureParam> cloureParams = new List<CloureParam>();
+            cloureParams.Add(new CloureParam("module", "cloure_login"));
             cloureParams.Add(new CloureParam("topic", "login"));
             cloureParams.Add(new CloureParam("user", user));
             cloureParams.Add(new CloureParam("pass", pass));
 
+            string res = await CloureManager.ExecuteAsync(cloureParams);
+
+            JsonObject api_result = JsonObject.Parse(res);
+            string error = api_result.GetNamedString("error");
+            if (error == "")
+            {
+                
+            }
+            else
+            {
+                btnLogin.IsEnabled = true;
+                btnRegister.IsEnabled = true;
+                loginProgress.IsActive = false;
+            }
+
+            /*
             if (loginResult)
             {
                 Frame.Navigate(typeof(MainPage));
@@ -96,9 +114,10 @@ namespace Cloure
                 btnRegister.IsEnabled = true;
                 loginProgress.IsActive = false;
             }
+            */
         }
-        */
 
+        /*
         public void attemptLoginV2()
         {
             loginProgress.IsActive = true;
@@ -121,6 +140,7 @@ namespace Cloure
                 btnRegister.IsEnabled = true;
             }
         }
+        */
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +151,8 @@ namespace Cloure
         {
             if(e.Key == Windows.System.VirtualKey.Enter)
             {
-                attemptLoginV2();
+                attemptLogin();
+                //attemptLoginV2();
             }
         }
 
@@ -144,12 +165,14 @@ namespace Cloure
 
         private async void LoadLocales()
         {
+            /*
             JsonObject json_res  = await AvailableLanguages.getLocales("users", CloureManager.lang);
             tbUserPrompt.Text = json_res.GetNamedString("user_login_field");
             tbPassPromp.Text = json_res.GetNamedString("password");
             btnLogin.Content = json_res.GetNamedString("login_button");
             btnRegister.Content = json_res.GetNamedString("register_button");
             chKeepConnected.Content = json_res.GetNamedString("keep_connected");
+            */
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
