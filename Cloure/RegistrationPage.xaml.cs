@@ -38,6 +38,7 @@ namespace Cloure
 
         private async void LoadLocales()
         {
+            /*
             JsonObject json_res = await AvailableLanguages.getLocales("users", CloureManager.lang);
             tbNamePrompt.Text = json_res.GetNamedString("name");
             tbLastNamePrompt.Text = json_res.GetNamedString("last_name");
@@ -51,6 +52,7 @@ namespace Cloure
             txtCloureURL.PlaceholderText = json_res.GetNamedString("cloure_url_example");
             btnLogin.Content = json_res.GetNamedString("login_button");
             btnRegister.Content = json_res.GetNamedString("register_button");
+            */
         }
 
         public async void loadBusinessTypes()

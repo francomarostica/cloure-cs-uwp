@@ -83,7 +83,7 @@ namespace Cloure
             //bool loginResult = await CloureManager.login(user, pass, chKeepConnected.IsChecked.Value);
 
             List<CloureParam> cloureParams = new List<CloureParam>();
-            cloureParams.Add(new CloureParam("module", "cloure_login"));
+            cloureParams.Add(new CloureParam("module", "cloure_user"));
             cloureParams.Add(new CloureParam("topic", "login"));
             cloureParams.Add(new CloureParam("user", user));
             cloureParams.Add(new CloureParam("pass", pass));
@@ -101,6 +101,7 @@ namespace Cloure
                 btnLogin.IsEnabled = true;
                 btnRegister.IsEnabled = true;
                 loginProgress.IsActive = false;
+                CloureManager.ShowDialog(error);
             }
 
             /*

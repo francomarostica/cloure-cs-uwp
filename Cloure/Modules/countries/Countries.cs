@@ -19,22 +19,22 @@ namespace Cloure.Modules.countries
             {
                 List<CloureParam> cparams = new List<CloureParam>();
                 cparams.Add(new CloureParam("module", "countries"));
-                cparams.Add(new CloureParam("topic", "get_list"));
+                cparams.Add(new CloureParam("topic", "list"));
                 string res = await CloureManager.ExecuteAsync(cparams);
 
                 JsonObject api_result = JsonObject.Parse(res);
                 string error = api_result.GetNamedString("Error");
                 if (error == "")
                 {
-                    JsonObject api_response = api_result.GetNamedObject("Response");
-                    JsonArray registers = api_response.GetNamedArray("Registros");
+                    //JsonObject api_response = api_result.GetNamedObject("Response");
+                    JsonArray registers = api_result.GetNamedArray("response");
 
                     foreach (JsonValue jsonValue in registers)
                     {
                         JsonObject register = jsonValue.GetObject();
                         Country item = new Country();
-                        item.Id = (int)register.GetNamedNumber("Id");
-                        item.Name = register.GetNamedString("Nombre");
+                        item.Id = (int)register.GetNamedNumber("id");
+                        item.Name = register.GetNamedString("name");
                         items.Add(item);
                     }
                 }
@@ -60,24 +60,24 @@ namespace Cloure.Modules.countries
             {
                 List<CloureParam> cparams = new List<CloureParam>();
                 cparams.Add(new CloureParam("module", "countries"));
-                cparams.Add(new CloureParam("topic", "get_cloure_list"));
+                cparams.Add(new CloureParam("topic", "list"));
                 cparams.Add(new CloureParam("available", "1"));
                 string res = await CloureManager.ExecuteAsync(cparams);
 
                 JsonObject api_result = JsonObject.Parse(res);
-                string error = api_result.GetNamedString("Error");
+                string error = api_result.GetNamedString("error");
                 if (error == "")
                 {
-                    JsonObject api_response = api_result.GetNamedObject("Response");
-                    JsonArray registers = api_response.GetNamedArray("Registros");
+                    //JsonObject api_response = api_result.GetNamedObject("Response");
+                    JsonArray registers = api_result.GetNamedArray("response");
 
                     foreach (JsonValue jsonValue in registers)
                     {
                         JsonObject register = jsonValue.GetObject();
                         Country item = new Country();
-                        item.Id = (int)register.GetNamedNumber("Id");
-                        item.Name = register.GetNamedString("Nombre");
-                        item.Codigo = register.GetNamedString("Dominio");
+                        item.Id = (int)register.GetNamedNumber("id");
+                        item.Name = register.GetNamedString("name");
+                        //item.Codigo = register.GetNamedString("Dominio");
                         items.Add(item);
                     }
                 }
